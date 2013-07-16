@@ -1,5 +1,7 @@
 #pragma strict
 
+var gameManager : GameManager;
+
 function Start () {
 	startPos = transform.position;
 	this.rigidbody.useGravity = false;
@@ -35,4 +37,7 @@ function OnMouseUp()
 	dir *= addPower;
 	this.rigidbody.useGravity = true;
 	this.rigidbody.AddForce(dir,ForceMode.Impulse);
+	
+	gameManager.StartGameOverCheck();
+	Destroy(this);
 }
